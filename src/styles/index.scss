@@ -1,0 +1,326 @@
+@import './iconfont.css';
+@import './reset.css';
+@import './element-plus.scss';
+@import './layout.scss';
+$bem-use-namespaces: false;
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+div:focus {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+.filter-container {
+    padding-bottom: 10px;
+    .filter-item {
+        display: inline-block;
+        vertical-align: middle;
+        // margin-bottom: $space;
+    }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+    line-height: 16px;
+}
+
+.multiselect--active {
+    z-index: 1000 !important;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.block-right {
+    display: inline-block;
+    // width: 100px;
+    text-align: left;
+    //   margin-left: $space;
+}
+
+.flex {
+    display: flex;
+    &-between {
+        @extend .flex;
+        justify-content: space-between;
+        &--center {
+            @extend .flex-between;
+            align-items: center;
+        }
+    }
+}
+
+.flex-item--center {
+    @extend .flex;
+    align-items: center;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.break-all {
+    word-break: break-all;
+    .el-message__closeBtn {
+        color: #333333;
+        font-size: 18px;
+    }
+}
+
+.align-center {
+    align-items: center;
+}
+
+//操作区
+.operator-container {
+    //   margin-bottom: $space;
+}
+
+.dialog-margin--bottom {
+    //   margin-bottom: $space / 2;
+}
+
+.form-item--inline {
+    display: inline-block;
+    width: 50%;
+}
+
+.width--full {
+    width: 100%;
+    height: 100%;
+}
+
+.width--harf {
+    width: 50%;
+}
+
+
+/* 列表页预览图片 */
+
+.thumbnail {
+    width: 80px;
+}
+
+.previewImage {
+    width: 200px;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline-block;
+}
+
+// 单张上传图片
+.avatar-uploader {
+    // display: inline-block;
+    width: 148px;
+    height: 148px;
+    overflow: hidden;
+}
+
+.list-img-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    img {
+        width: 100%;
+    }
+    span {
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        background: rgba(0, 0, 0, .5);
+        color: #fff;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        border: 1px solid #dad3d3;
+        border-radius: 100%;
+    }
+}
+
+.status {
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.green-status {
+    @extend .status;
+    //   border: 1px solid $green;
+    //   color: $green;
+}
+
+.gray-status {
+    @extend .status;
+    //   border: 1px solid $gray;
+    //   color: $gray;
+}
+
+.red-status {
+    @extend .status;
+    //   border: 1px solid $red;
+    //   color: $red;
+}
+
+.pad-r-20 {
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+
+.mar-l-20 {
+    margin-left: 20px;
+}
+
+.mar-l-50 {
+    margin-left: 50px;
+}
+
+.mar-r-20 {
+    margin-right: 20px;
+}
+
+.mar-rl-20 {
+    margin: 0 20px;
+}
+
+.mar-t-20 {
+    margin-top: 20px;
+}
+
+.mar-t-40 {
+    margin-top: 40px;
+}
+
+.mar-b-20 {
+    margin-bottom: 20px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.mar-b-10 {
+    margin-bottom: 10px;
+}
+
+.mar-l-10 {
+    margin-left: 10px;
+}
+
+.mar-r-10 {
+    margin-right: 10px;
+}
+
+.mar-t-10 {
+    margin-top: 10px;
+}
+
+.warning {
+    color: #e71f19;
+}
+
+.security {
+    color: #67c23a;
+}
+
+.gray {
+    color: #666;
+}
+
+.page-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.blue {
+    color: #3a8ee6;
+}
+
+.point {
+    cursor: pointer;
+}
+
+.el-tooltip__popper {
+    max-width: 400px;
+}
+
+.link {
+    cursor: pointer;
+    color: #3a8ee6;
+}
+
+.tips {
+    padding-top: 8px;
+    color: #aaa;
+}
+
+.required {
+    color: #E71F19;
+}
+
+.form-tips {
+    color: #666;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.image-box {
+    height: 70px;
+    width: 70px;
+}
+
+.block-right {
+    height: 70px;
+}

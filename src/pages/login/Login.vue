@@ -24,20 +24,6 @@
                 </el-form>
             </div>
         </div>
-        <!-- <el-form autoComplete="on" :model="loginFormData" ref="loginForm" label-position="left" label-width="0px" class="card-box login-form">
-            <h3 class="title">vue3-vite-admin</h3>
-            <el-form-item prop="username">
-                <i class="iconfont">&#xe612;</i>
-                <el-input name="username" type="text" v-model="loginFormData.username" autoComplete="on" placeholder="手机号" />
-            </el-form-item>
-            <el-form-item prop="password">
-                <i class="iconfont">&#xe638;</i>
-                <el-input @keyup.enter.native="handleLogin" v-model="loginFormData.password" placeholder="密码" type="password"> </el-input>
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" style="width: 100%; height: 44px" :loading="loading" @click.native.prevent="handleLogin"> 登录 </el-button>
-            </el-form-item>
-        </el-form> -->
     </div>
 </template>
 
@@ -89,7 +75,7 @@ $light_gray: #eee;
     background-position: 50%;
     background-size: 100% 100%;
     background-size: cover;
-    background-color: $dark_gray;
+    background-color: $light_gray;
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 1000px #293444 inset !important;
         -webkit-text-fill-color: #fff !important;

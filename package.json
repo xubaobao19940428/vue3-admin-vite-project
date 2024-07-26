@@ -25,6 +25,7 @@
   "devDependencies": {
     "@babel/types": "^7.16.0",
     "@types/js-md5": "^0.4.3",
+    "@types/mockjs": "^1.0.10",
     "@types/node": "^16.11.10",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
@@ -40,6 +41,7 @@
     "eslint-plugin-vue": "^8.1.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
+    "mockjs": "^1.1.0",
     "mrm": "^3.0.10",
     "prettier": "^2.4.1",
     "sass": "^1.44.0",

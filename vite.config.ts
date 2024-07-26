@@ -1,7 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
-// import { createStyleImportPlugin, VantResolve } from 'vite-plugin-style-import';
 import ViteComponents, { ElementPlusResolver } from 'vite-plugin-components'
 
 export default ({ mode }) => {
@@ -11,15 +10,12 @@ export default ({ mode }) => {
         server: {
             proxy: {
                 // 选项写法
-                '/meta/': {
-                    target: 'https://gateway.mehome.shop/',
+                '/api/': {
+                    target: 'http://localhost:8080/',
                     // target: 'https://gateway-pre.memall.shop/', //预发
                     // target: 'https://gateway.melive.shop/', // 线上
                     changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/meta/, 'meta/')
-                    // {
-                    //     '^/meta/': 'meta/',
-                    // },
+                    rewrite: (path) => path.replace(/^\/api/, 'api/')
                 },
                 // 正则表达式写法
                 '^/fallback/.*': {

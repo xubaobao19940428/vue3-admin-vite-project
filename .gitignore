@@ -1,5 +1,11 @@
+# 文件夹
 node_modules
 .DS_Store
 dist
 dist-ssr
+.husky
+.vscode
+# 文件
+package-lock.json
+yarn-error.log
 *.local

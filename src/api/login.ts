@@ -1,17 +1,14 @@
 import request from './request'
-interface loginParams{
-    mobile:string
-    password:string
-    countryAreaCode:string
+interface loginParams {
+    username: string
+    password: string
 }
 //登录
-export function login(data: loginParams) {
+export function loginAdmin(data: loginParams) {
+    console.log(data)
     return request({
-        serverName: 'metashop',
-        interfaceName: 'com.metashop.user.server.api.UserService',
-        methodName: 'login',
+        url: 'user/login',
+        method: 'post',
         data: data,
-        // method: '',
-        // group: ''
     });
 }

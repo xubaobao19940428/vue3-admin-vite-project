@@ -1,10 +1,10 @@
 <template>
     <div class="login-container">
         <el-form autoComplete="on" :model="loginFormData" ref="loginForm" label-position="left" label-width="0px" class="card-box login-form">
-            <h3 class="title">章鱼帝后台</h3>
-            <el-form-item prop="mobile">
+            <h3 class="title">vue3-vite-admin</h3>
+            <el-form-item prop="username">
                 <i class="iconfont">&#xe612;</i>
-                <el-input name="username" type="text" onkeyup="value=value.replace(/[^\d]/g,'')" v-model="loginFormData.mobile" autoComplete="on" placeholder="手机号" />
+                <el-input name="username" type="text" v-model="loginFormData.username" autoComplete="on" placeholder="手机号" />
             </el-form-item>
             <el-form-item prop="password">
                 <i class="iconfont">&#xe638;</i>
@@ -20,28 +20,32 @@
 <script setup lang="ts">
 import { useMainStore } from '@/store/main'
 import { ref, reactive } from 'vue'
-import { login } from '@/api/login'
+import { loginAdmin } from '@/api/login'
+import { ElMessage } from 'element-plus'
 const loading = ref(false)
 const loginFormData = reactive({
-    mobile: '',
+    username: '',
     password: '',
-    countryAreaCode: '86',
 })
 const mainStore = useMainStore()
-// console.log(mainStore)
 const updateName = () => {
     mainStore.$patch({
         name: '名称被修改了,nameLength也随之改变了',
     })
 }
+/**
+ * @description 登录
+ */
 function handleLogin() {
-    login(loginFormData)
-        .then((response) => {
+    loginAdmin(loginFormData)
+        .then((response:any) => {
             if (response) {
-                console.log(response)
+                ElMessage.success(response.message)
             }
         })
-        .catch((error) => {})
+        .catch((error) => {
+            ElMessage.error(error.message)
+        })
 }
 </script>
 
@@ -61,10 +65,14 @@ $light_gray: #eee;
         -webkit-text-fill-color: #fff !important;
     }
     .el-input {
-        display: inline-block;
+        // display: inline-block;
         height: 47px;
-        width: 85%;
-        input {
+        flex: 1;
+        :deep().el-input__wrapper {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        :deep()input {
             background: 0;
             border: 0;
             -webkit-appearance: none;

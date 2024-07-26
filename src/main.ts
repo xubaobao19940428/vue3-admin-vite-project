@@ -6,6 +6,7 @@ import locale from 'element-plus/lib/locale/lang/zh-cn'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import router from './router/index'
 import './styles/index.scss'
+import '@/mock/index' // 此次进行引用
 import { createPinia } from 'pinia'
 
 

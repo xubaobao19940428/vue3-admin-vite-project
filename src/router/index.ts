@@ -1,15 +1,13 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-// import voucher from './voucher'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
         redirect: 'voucher/voucherDetail'
     },
-    // ...voucher,
     {
         path: '/login',
-        name: 'Login',
-        component: () => import('@/pages/login/Login.vue'),
+        name: 'login',
+        component: () => import('@/pages/login/login.vue'),
     },
     {
         path: '/404',
@@ -23,12 +21,11 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/:pathMatch(.*)*',
         redirect: '/404',
-        hidden: true,
     },
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
 })
 

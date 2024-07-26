@@ -34,19 +34,6 @@ export default ({ mode }) => {
             ViteComponents({
                 customComponentResolvers: [ElementPlusResolver({ importStyle: true })],
             }),
-            // styleImport({
-            //     libs: [{
-            //         libraryName: 'element-plus',
-            //         esModule: true,
-            //         ensureStyleFile: true,
-            //         resolveStyle: (name) => {
-            //             return `element-plus/packages/theme-chalk/src/${name}.css`
-            //         },
-            //         resolveComponent: (name) => {
-            //             return `element-plus/lib/${name}`
-            //         },
-            //     }, ],
-            // }),
         ],
         resolve: {
             alias: {

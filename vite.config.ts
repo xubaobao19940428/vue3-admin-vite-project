@@ -25,6 +25,7 @@ export default ({ mode }) => {
                 },
             },
             port: 8081,
+            host: '0.0.0.0',
             https: false,
             cors: true,
             hmr: true,

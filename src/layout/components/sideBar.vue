@@ -27,10 +27,12 @@
 </template>
 
 <script>
-import { systemState } from '@/store/system'
+import { useSystemState } from '@/store/system'
 import { mapState } from 'pinia'
 import sidebarItem from './sidebarItem.vue'
+
 export default {
+   
 	name: 'sideBar',
 	props: {
 		routers: {
@@ -49,7 +51,7 @@ export default {
 	},
 
 	computed: {
-		...mapState(systemState,['isCollapse']),
+		...mapState(useSystemState,['isCollapse']),
 		activePath() {
 			return this.$route.path
 		},

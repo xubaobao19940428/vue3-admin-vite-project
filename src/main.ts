@@ -7,13 +7,16 @@ import 'element-plus/dist/index.css'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 //引用echarts
-import * as echarts from 'echarts'
+// import * as echarts from 'echarts'
 
 //引用vueRouter
 import router from './router/index'
 import './styles/index.scss'
 //引用mock.js
 import '@/mock/index'
+
+import echartsResize from './directives/echartsResize';
+
 import { createPinia } from 'pinia'
 
 
@@ -22,8 +25,9 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 //注册echarts
+app.directive('echartsResize', echartsResize);
 
-app.config.globalProperties.$echarts = echarts
+// app.config.globalProperties.$echarts = echarts
 
 app.use(router)
 

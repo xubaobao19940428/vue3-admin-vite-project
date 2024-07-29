@@ -32,9 +32,8 @@ Mock.mock('/api/user/login', 'post', (options) => {
 
     // 模拟的用户数据
     const users = [
-        { username: 'user1', password: 'password1' },
-        { username: 'user2', password: 'password2' },
-        { username: 'admin', password: 'admin' }
+        { username: 'user', password: '123456' },
+        { username: 'admin', password: '123456' }
     ];
 
     // 检查用户名和密码

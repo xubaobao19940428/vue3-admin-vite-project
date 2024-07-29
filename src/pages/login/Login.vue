@@ -11,11 +11,11 @@
                 </div>
                 <el-form autoComplete="on" :model="loginFormData" ref="loginForm" label-position="left" label-width="0px" class="card-box">
                     <el-form-item prop="username" style="border: 1px solid #ccc; padding: 0 10px; border-radius: 5px">
-                        <i class="iconfont">&#xe612;</i>
+                        <i class="iconfont">&#xe618;</i>
                         <el-input name="username" type="text" v-model="loginFormData.username" autoComplete="on" placeholder="账号" />
                     </el-form-item>
                     <el-form-item prop="password" style="border: 1px solid #ccc; padding: 0 10px; border-radius: 5px">
-                        <i class="iconfont">&#xe638;</i>
+                        <i class="iconfont">&#xe658;</i>
                         <el-input @keyup.enter.native="handleLogin" v-model="loginFormData.password" placeholder="密码" type="password"> </el-input>
                     </el-form-item>
                     <el-form-item>
@@ -145,11 +145,14 @@ $light_gray: #eee;
                     font-weight: bold;
                     white-space: nowrap;
                     background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-                    -webkit-background-clip: text;
+                    background-clip: text;
                     color: transparent;
                 }
             }
         }
+    }
+    .iconfont{
+        font-size: 30px;
     }
 }
 </style>

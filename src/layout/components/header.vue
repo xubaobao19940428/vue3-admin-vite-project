@@ -5,27 +5,24 @@
             <div class="nav_header_fold">
                 <el-icon @click="openCollapse(true)" v-if="!isCollapse"><Fold /></el-icon>
                 <el-icon @click="openCollapse(false)" v-else><Expand /></el-icon>
-                <!-- <i class="el-icon-s-fold" @click="openCollapse(true)" v-if="!isCollapse"></i>
-                <i class="el-icon-s-unfold" @click="openCollapse(false)" v-else></i> -->
             </div>
             <el-breadcrumb separator-class="el-icon-arrow-right">
                 <el-breadcrumb-item v-for="(item, i) in levelList" :to="{ name: item.name }" :key="i">{{ item.meta.title }}</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="header-r">
+            <FullScreen></FullScreen>
             <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
                     <img src="@/assets/user-header.png" />
-                    <span>{{ 'MeiMiao' }}</span>
-                    <i class="iconfont">&#xe8ec;</i>
+                    <span>{{ 'XAdmin' }}</span>
+                    <i class="iconfont">&#xe630;</i>
                 </div>
                 <template #dropdown>
                     <el-dropdown-menu class="user-dropdown">
                         <router-link to="">
                             <el-dropdown-item>首页</el-dropdown-item>
                         </router-link>
-                        <!-- <el-dropdown-item>修改密码</el-dropdown-item>
-                        <el-dropdown-item>设置</el-dropdown-item> -->
                         <el-dropdown-item><span @click="logout">退出</span></el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
@@ -34,54 +31,28 @@
     </div>
 </template>
 
-<script>
-import { systemState } from '@/store/system'
+<script  setup lang="ts" name="HeaderNav">
+import { ref, reactive, computed } from 'vue'
+
+import { useSystemState } from '@/store/system'
 import { mapState } from 'pinia'
-export default {
-    name: 'HeaderNav',
-    // setup() {
-    //     var systemState = systemState
-    //     function openCollapse(value) {
-    //         console.log(value)
-    //         systemState.insertPost({ 'isCollapse': value })
-    //     }
-    // },
-    data() {
-        return {
-            userInfo: {
-                nickName: '',
-                mobile: '',
-            },
-        }
-    },
-    watch: {},
-    components: {},
 
-    computed: {
-        // ...mapState({
-        //     isCollapse: state => state.nav.isCollapse,
-        //     username: state => state.user.username,
-        //     lang: state => state.system.lang,
-        // }),
-        ...mapState(systemState, ['isCollapse']),
-        levelList() {
-            return this.$route.matched
-        },
-        languageList() {
-            return this.$store.state.system.languageList.length ? this.$store.state.system.languageList : JSON.parse(localStorage.getItem('languageList'))
-        },
-    },
+import { useRoute } from 'vue-router'
+import FullScreen from '@/components/FullScreen/FullScreen.vue'
+const systemState = useSystemState()
+const route = useRoute()
 
-    mounted() {},
-
-    methods: {
-        openCollapse(value) {
-            this._pStores.systemState.insertPost(value)
-        },
-        logout() {
-            this.$store.dispatch('LogOut')
-        },
-    },
+const isCollapse = computed(() => systemState.isCollapse)
+const levelList = computed(() => route.matched)
+const userInfo = reactive({
+    nickName: '',
+    mobile: '',
+})
+const openCollapse = (value) => {
+    systemState.insertPost(value)
+}
+const logout = () => {
+    systemState.loginOut()
 }
 </script>
 <style lang="scss" scoped>
@@ -113,6 +84,7 @@ export default {
     }
     .header-r {
         display: flex;
+        align-items: center;
         .avatar-wrapper {
             display: flex;
             align-items: center;

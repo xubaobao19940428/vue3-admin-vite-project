@@ -8,81 +8,96 @@
     <div class="home">
         <div class="home-header">
             <el-row :gutter="20">
-            <el-col :span="4">
-                <el-card>
-                    <div class="icon-left">
-                        <i class="iconfont icon-qiandai"></i>
-                    </div>
-                    <div class="icon-right">
-                        <div class="icon-right-label">金钱</div>
-                        <VueCountTo :start-val="0" :end-val="1200" :decimals="0" :duration="2000"></VueCountTo>
-                    </div>
+                <el-col :span="4">
+                    <el-card>
+                        <div class="icon-left">
+                            <i class="iconfont icon-qiandai"></i>
+                        </div>
+                        <div class="icon-right">
+                            <div class="icon-right-label">金钱</div>
+                            <VueCountTo :start-val="0" :end-val="1200" :decimals="0" :duration="2000"></VueCountTo>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="4">
+                    <el-card>
+                        <div class="icon-left">
+                            <i class="iconfont icon-dingdan"></i>
+                        </div>
+                        <div class="icon-right">
+                            <div class="icon-right-label">订单</div>
+                            <VueCountTo :start-val="0" :end-val="1210" :decimals="0" :duration="2000"></VueCountTo>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="4">
+                    <el-card>
+                        <div class="icon-left">
+                            <i class="iconfont icon-fangwen"></i>
+                        </div>
+                        <div class="icon-right">
+                            <div class="icon-right-label">访问量</div>
+                            <VueCountTo :start-val="0" :end-val="1320" :decimals="0" :duration="2000"></VueCountTo>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="4">
+                    <el-card>
+                        <div class="icon-left">
+                            <i class="iconfont icon-renshu"></i>
+                        </div>
+                        <div class="icon-right">
+                            <div class="icon-right-label">人数</div>
+                            <VueCountTo :start-val="0" :end-val="1500" :decimals="0" :duration="2000"></VueCountTo>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="4">
+                    <el-card>
+                        <div class="icon-left">
+                            <i class="iconfont icon-fangwen"></i>
+                        </div>
+                        <div class="icon-right">
+                            <div class="icon-right-label">访问量</div>
+                            <VueCountTo :start-val="0" :end-val="1200" :decimals="0" :duration="2000"></VueCountTo>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="4">
+                    <el-card>
+                        <div class="icon-left">
+                            <i class="iconfont icon-renshu"></i>
+                        </div>
+                        <div class="icon-right">
+                            <div class="icon-right-label">人数</div>
+                            <VueCountTo :start-val="0" :end-val="1200" :decimals="0" :duration="2000"></VueCountTo>
+                        </div>
+                    </el-card>
+                </el-col>
+            </el-row>
+        </div>
+        <el-row :gutter="20">
+            <el-col :span="12">
+                <el-card style="width: 100%; height: 100%">
+                    <PieCharts></PieCharts>
                 </el-card>
             </el-col>
-            <el-col :span="4">
-                <el-card>
-                    <div class="icon-left">
-                        <i class="iconfont icon-dingdan"></i>
-                    </div>
-                    <div class="icon-right">
-                        <div class="icon-right-label">订单</div>
-                        <VueCountTo :start-val="0" :end-val="1210" :decimals="0" :duration="2000"></VueCountTo>
-                    </div>
-                </el-card>
-            </el-col>
-            <el-col :span="4">
-                <el-card>
-                    <div class="icon-left">
-                        <i class="iconfont icon-fangwen"></i>
-                    </div>
-                    <div class="icon-right">
-                        <div class="icon-right-label">访问量</div>
-                        <VueCountTo :start-val="0" :end-val="1320" :decimals="0" :duration="2000"></VueCountTo>
-                    </div>
-                </el-card>
-            </el-col>
-            <el-col :span="4">
-                <el-card>
-                    <div class="icon-left">
-                        <i class="iconfont icon-renshu"></i>
-                    </div>
-                    <div class="icon-right">
-                        <div class="icon-right-label">人数</div>
-                        <VueCountTo :start-val="0" :end-val="1500" :decimals="0" :duration="2000"></VueCountTo>
-                    </div>
-                </el-card>
-            </el-col>
-            <el-col :span="4">
-                <el-card>
-                    <div class="icon-left">
-                        <i class="iconfont icon-fangwen"></i>
-                    </div>
-                    <div class="icon-right">
-                        <div class="icon-right-label">访问量</div>
-                        <VueCountTo :start-val="0" :end-val="1200" :decimals="0" :duration="2000"></VueCountTo>
-                    </div>
-                </el-card>
-            </el-col>
-            <el-col :span="4">
-                <el-card>
-                    <div class="icon-left">
-                        <i class="iconfont icon-renshu"></i>
-                    </div>
-                    <div class="icon-right">
-                        <div class="icon-right-label">人数</div>
-                        <VueCountTo :start-val="0" :end-val="1200" :decimals="0" :duration="2000"></VueCountTo>
-                    </div>
+            <el-col :span="12">
+                <el-card style="width: 100%; height: 100%">
+                    <PieCharts></PieCharts>
                 </el-card>
             </el-col>
         </el-row>
-        </div>
-       
         <el-row :gutter="20">
             <el-col :span="12">
-                <LineCharts></LineCharts>
+                <el-card style="width: 100%; height: 100%">
+                    <LineCharts></LineCharts>
+                </el-card>
             </el-col>
             <el-col :span="12">
-                <BarCharts></BarCharts>
+                <el-card style="width: 100%; height: 100%">
+                    <BarCharts></BarCharts>
+                </el-card>
             </el-col>
         </el-row>
     </div>
@@ -92,7 +107,7 @@
 import { ref } from 'vue'
 import LineCharts from '@/components/Charts/LineCharts.vue'
 import BarCharts from '@/components/Charts/BarCharts.vue'
-
+import PieCharts from '@/components/Charts/PieCharts.vue'
 import VueCountTo from '@/components/VueCountTo/VueCountTo.vue'
 </script>
 
@@ -104,38 +119,41 @@ import VueCountTo from '@/components/VueCountTo/VueCountTo.vue'
     flex-direction: column;
     padding: 12px;
     box-sizing: border-box;
-    .home-header{
-        height:200px;
+    .home-header {
+        height: 100px;
+        margin-bottom: 20px;
     }
     .el-row {
         flex: 1;
+        margin:10px 0;
         .el-col {
-            &:nth-child(1) {
-                :deep(.el-card) {
-                    background-color: aquamarine;
-                }
-            }
-            &:nth-child(2) {
-                :deep(.el-card) {
-                    background-color: aqua;
-                }
-            }
-            &:nth-child(3) {
-                :deep(.el-card) {
-                    background-color: bisque;
-                }
-            }
-            &:nth-child(4) {
-                :deep(.el-card) {
-                    background-color: blanchedalmond;
-                }
-            }
+            // &:nth-child(1) {
+            //     :deep(.el-card) {
+            //         background-color: aquamarine;
+            //     }
+            // }
+            // &:nth-child(2) {
+            //     :deep(.el-card) {
+            //         background-color: aqua;
+            //     }
+            // }
+            // &:nth-child(3) {
+            //     :deep(.el-card) {
+            //         background-color: bisque;
+            //     }
+            // }
+            // &:nth-child(4) {
+            //     :deep(.el-card) {
+            //         background-color: blanchedalmond;
+            //     }
+            // }
         }
 
         :deep(.el-card__body) {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            height: 100%;
             // background-color:#111;
 
             .icon-left {

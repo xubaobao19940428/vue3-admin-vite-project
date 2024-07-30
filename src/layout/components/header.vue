@@ -11,6 +11,7 @@
             </el-breadcrumb>
         </div>
         <div class="header-r">
+            <i class="iconfont icon-shezhi" @click="changeDrawer"></i>
             <FullScreen></FullScreen>
             <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
@@ -31,7 +32,7 @@
     </div>
 </template>
 
-<script  setup lang="ts" name="HeaderNav">
+<script setup lang="ts" name="HeaderNav">
 import { ref, reactive, computed } from 'vue'
 
 import { useSystemState } from '@/store/system'
@@ -54,6 +55,9 @@ const openCollapse = (value) => {
 const logout = () => {
     systemState.loginOut()
 }
+const changeDrawer = ()=>{
+    systemState.changeDrawer(true)
+}
 </script>
 <style lang="scss" scoped>
 .memall_admin_header {
@@ -70,6 +74,7 @@ const logout = () => {
     .hread-l {
         display: flex;
         align-items: center;
+
         .nav_header_fold {
             display: inline-block;
             i {
@@ -85,6 +90,14 @@ const logout = () => {
     .header-r {
         display: flex;
         align-items: center;
+        .iconfont {
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s;
+            &:hover {
+                transform: rotate(45deg);
+            }
+        }
         .avatar-wrapper {
             display: flex;
             align-items: center;

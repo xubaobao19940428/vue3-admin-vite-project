@@ -8,6 +8,7 @@
             <HeaderNav></HeaderNav>
             <router-view class="layout_view"></router-view>
         </div>
+        <SystemSetting></SystemSetting>
     </div>
 </template>
 
@@ -18,6 +19,7 @@ import { useSystemState } from '@/store/system'
 import sideBar from './components/sideBar.vue'
 import router from '@/router/index'
 import HeaderNav from './components/header.vue'
+import SystemSetting from '@/components/SystemSetting/SystemSetting.vue'
 export default defineComponent({
     setup() {},
     data() {
@@ -26,7 +28,8 @@ export default defineComponent({
 
     components: {
         sideBar,
-        HeaderNav
+        HeaderNav,
+        SystemSetting,
     },
 
     computed: {
@@ -47,7 +50,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-.layout{
+.layout {
     width: 100%;
     height: 100%;
     display: flex;
@@ -73,6 +76,5 @@ export default defineComponent({
             flex: 1;
         }
     }
-
 }
 </style>

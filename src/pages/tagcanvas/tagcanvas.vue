@@ -6,6 +6,14 @@
 -->
 <template>
     <div class="container">
+        <div class="mb-4">
+            <el-button @click="changeTagcanvas('vcylinder')">vcylinder</el-button>
+            <el-button type="primary" @click="changeTagcanvas('sphere')">sphere</el-button>
+            <el-button type="success" @click="changeTagcanvas('hcylinder')">hcylinder</el-button>
+            <el-button type="info" @click="changeTagcanvas('hring')">hring</el-button>
+            <el-button type="warning" @click="changeTagcanvas('vring(0.5)')">vring(0.5)</el-button>
+            <el-button type="warning" @click="changeTagcanvas('DblHelix')">DblHelix</el-button>
+        </div>
         <div class="label">tagcanvas Demo词云加图的效果</div>
         <div id="myCanvasContainer">
             <canvas width="200" height="200" id="myCanvas" ref="canvasDom">
@@ -38,19 +46,31 @@
 
 <script setup lang="ts">
 import { onMounted, ref, onBeforeMount, nextTick } from 'vue'
+import { pictureGet } from '@/api/picture'
 import { ElMessage } from 'element-plus'
 const canvasDom = ref(null)
 const tScale = ref(window.devicePixelRatio || 1)
-const members = ref(
-    new Array(30).fill({
-        pic: 'https://fastly.picsum.photos/id/75/200/300.jpg?hmac=sjSIzdmDj0dZefwBIN61pwl3azxymhEGh9owb8ZEgxg',
-        text: 'test1',
-    })
-)
+const members = ref([])
+const shape = ref('sphere')
 
 const init = () => {
     let tWidth = document.body.offsetWidth
     try {
+         const DblHelix = function (n, rx, ry, rz) {
+            console.log('11111',n,rx)
+            var a = Math.PI / n,
+                i,
+                j,
+                p = [],
+                z = (rz * 2) / n
+            for (i = 0; i < n; ++i) {
+                j = a * i
+                if (i % 2) j += Math.PI
+                p.push([rx * Math.cos(j), rz - z * i, ry * Math.sin(j)])
+            }
+            console.log('p',p)
+            return p
+        }
         TagCanvas.Start('myCanvas', 'tags', {
             // bgColour:'#ccc',
             textColour: '#111',
@@ -62,6 +82,7 @@ const init = () => {
             bgOutline: null,
             imageMode: 'both',
             imagePosition: 'top',
+            imageScale: 0.2,
             imageRadius: '50%',
             outlineColour: null,
             // offsetX:-tWidth,
@@ -72,6 +93,8 @@ const init = () => {
             weight: true,
             weightGradient: "{0:'#f00', 0.33:'#ff0',0.66:'#0f0', 1:'#00f'}",
             initial: [0.05, -0.05],
+            shape: shape.value,
+            // lock: 'x',
         })
     } catch (e) {
         console.log('错误信息', e)
@@ -79,20 +102,33 @@ const init = () => {
         document.getElementById('myCanvasContainer').style.display = 'none'
     }
 }
+const getPictureFunc = () => {
+    pictureGet()
+        .then((res) => {
+            members.value = res.data
+            var canvas = canvasDom.value
+            let tWidth = document.body.offsetWidth
+            let tHeight = 500
+            canvas.style.width = tWidth + 'px'
+            canvas.style.height = tHeight + 'px'
+            canvas.width = tWidth * tScale.value
+            canvas.height = tHeight * tScale.value
+            nextTick(function () {
+                init()
+            })
+        })
+        .catch((error) => {})
+}
 const clickTo = (data) => {
     ElMessage.success('点击了词云效果')
 }
+const changeTagcanvas = (data) => {
+    shape.value = data
+    init()
+}
+
 onMounted(() => {
-    var canvas = canvasDom.value
-    let tWidth = document.body.offsetWidth
-    let tHeight = 500
-    canvas.style.width = tWidth + 'px'
-    canvas.style.height = tHeight + 'px'
-    canvas.width = tWidth * tScale.value
-    canvas.height = tHeight * tScale.value
-    nextTick(function () {
-        init()
-    })
+    getPictureFunc()
 })
 </script>
 
@@ -104,6 +140,9 @@ onMounted(() => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .label {
+        margin: 20px 0;
+    }
 }
 #tags {
     position: absolute;

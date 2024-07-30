@@ -24,6 +24,22 @@ Mock.mock('/api/user/getAll', 'get', () => {
         message: '成功'
     }
 })
+Mock.mock('/api/picture/getAll', 'get', () => {
+    // 定义数据模板
+    const data = Mock.mock({
+        'data|30': [
+            {
+                'pic': '@image("200x300", "@color", "@word")',
+                'text': '@word'
+            }
+        ]
+    });
+    return {
+        code: 200,
+        message: '成功',
+        data: data.data
+    }
+})
 
 Mock.mock('/api/user/login', 'post', (options) => {
     console.log(options)

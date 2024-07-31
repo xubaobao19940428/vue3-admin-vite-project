@@ -1,6 +1,6 @@
 <!-- 头部 -->
 <template>
-    <div class="memall_admin_header">
+    <div class="x-admin-header">
         <div class="hread-l">
             <div class="nav_header_fold">
                 <el-icon @click="openCollapse(true)" v-if="!isCollapse"><Fold /></el-icon>
@@ -15,8 +15,8 @@
             <FullScreen></FullScreen>
             <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
-                    <img src="@/assets/user-header.png" />
-                    <span>{{ 'XAdmin' }}</span>
+                    <img :src="userInfo.avatar || '@/assets/user-header.png'" />
+                    <span>{{ userInfo.name || 'xAdmin' }}</span>
                     <i class="iconfont">&#xe630;</i>
                 </div>
                 <template #dropdown>
@@ -35,32 +35,30 @@
 <script setup lang="ts" name="HeaderNav">
 import { ref, reactive, computed } from 'vue'
 
-import { useSystemState } from '@/store/system'
-import { mapState } from 'pinia'
-
+import { useSystemStore } from '@/store/system'
+import { useUserStore } from '@/store/user'
 import { useRoute } from 'vue-router'
 import FullScreen from '@/components/FullScreen/FullScreen.vue'
-const systemState = useSystemState()
+const systemStore = useSystemStore()
+const userStore = useUserStore()
+
 const route = useRoute()
 
-const isCollapse = computed(() => systemState.isCollapse)
+const isCollapse = computed(() => systemStore.isCollapse)
 const levelList = computed(() => route.matched)
-const userInfo = reactive({
-    nickName: '',
-    mobile: '',
-})
+const userInfo = computed(() => userStore.userInfo)
 const openCollapse = (value) => {
-    systemState.insertPost(value)
+    systemStore.insertPost(value)
 }
 const logout = () => {
-    systemState.loginOut()
+    systemStore.loginOut()
 }
-const changeDrawer = ()=>{
-    systemState.changeDrawer(true)
+const changeDrawer = () => {
+    systemStore.changeDrawer(true)
 }
 </script>
 <style lang="scss" scoped>
-.memall_admin_header {
+.x-admin-header {
     width: 100%;
     height: 50px;
     border-bottom: 1px solid #ccc;

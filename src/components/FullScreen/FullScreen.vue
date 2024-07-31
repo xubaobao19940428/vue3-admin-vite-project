@@ -6,11 +6,11 @@
 
 <script lang="ts" setup name="FullScreen">
 import { onMounted, ref, onBeforeMount, computed } from 'vue'
-import { useSystemState } from '@/store/system'
+import { useSystemStore } from '@/store/system'
 import { mapState } from 'pinia'
 import screenfull from 'screenfull'
 import { ElMessage } from 'element-plus'
-const systemState = useSystemState()
+const systemStore = useSystemStore()
 const click = () => {
     if (!screenfull.isEnabled) {
         ElMessage({
@@ -22,12 +22,12 @@ const click = () => {
     screenfull.toggle()
 }
 
-const isFullscreen = computed(() => systemState.isFullscreen)
+const isFullscreen = computed(() => systemStore.isFullscreen)
 /**
  * @description 全屏
  */
 const change = () => {
-    systemState.changeFullScreen(screenfull.isFullscreen)
+    systemStore.changeFullScreen(screenfull.isFullscreen)
 }
 /**
  * @description 全屏初始化

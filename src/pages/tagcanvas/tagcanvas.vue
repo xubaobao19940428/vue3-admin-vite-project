@@ -92,7 +92,7 @@ const init = () => {
             maxSpeed: 0.01,
             weight: true,
             weightGradient: "{0:'#f00', 0.33:'#ff0',0.66:'#0f0', 1:'#00f'}",
-            initial: [0.05, -0.05],
+            initial: [0.01, -0.01],
             shape: shape.value,
             // lock: 'x',
         })

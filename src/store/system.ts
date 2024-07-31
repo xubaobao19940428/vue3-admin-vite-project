@@ -2,13 +2,14 @@
 import { defineStore } from 'pinia'
 
 import router from '@/router'
-
-export const useSystemState = defineStore({
-    id: 'systemState',
+const html = document.documentElement
+export const useSystemStore = defineStore({
+    id: 'systemStore',
     state: () => ({
         isCollapse: false,
         isFullScreen: false,
         drawer: false,
+        theme: localStorage.getItem('theme') || 'light',
     }),
     actions: {
         insertPost(data: boolean): void {
@@ -26,6 +27,11 @@ export const useSystemState = defineStore({
         },
         changeDrawer(data: boolean): void {
             this.drawer = data
+        },
+        changeTheme(data: string): void {
+            html.setAttribute('data-theme', data)
+            localStorage.setItem('theme', data)
+            this.theme = data
         }
     },
 })

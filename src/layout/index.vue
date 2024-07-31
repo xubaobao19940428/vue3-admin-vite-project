@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapState } from 'pinia'
-import { useSystemState } from '@/store/system'
+import { useSystemStore } from '@/store/system'
 import sideBar from './components/sideBar.vue'
 import router from '@/router/index'
 import HeaderNav from './components/header.vue'
@@ -33,7 +33,7 @@ export default defineComponent({
     },
 
     computed: {
-        ...mapState(useSystemState, ['isCollapse']),
+        ...mapState(useSystemStore, ['isCollapse']),
         routers() {
             let newRoute = router.getRoutes().filter((item) => {
                 return item.children.length > 0

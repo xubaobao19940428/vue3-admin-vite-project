@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8" />
@@ -13,7 +13,6 @@
         <style>
             html,
             body {
-
                 width: 100%;
                 height: 100%;
                 margin: 0;
@@ -166,9 +165,12 @@
             </div>
         </div>
     </div>
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light') 
+    </script>
     <script type="module" src="/src/main.ts"></script>
     <script src="./tagcanvas.min.js"></script>
-
+    
 </body>
 
 </html>

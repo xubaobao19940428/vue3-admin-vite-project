@@ -13,15 +13,15 @@
 
 <script setup lang="ts" name="SystemSetting">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useSystemState } from '@/store/system'
-const systemState = useSystemState()
-const drawer = computed(() => systemState.drawer)
+import { useSystemStore } from '@/store/system'
+const systemStore = useSystemStore()
+const drawer = computed(() => systemStore.drawer)
 
 const showSetting = () => {
-    systemState.changeDrawer(true)
+    systemStore.changeDrawer(true)
 }
 const handleClose = () => {
-    systemState.changeDrawer(false)
+    systemStore.changeDrawer(false)
 }
 
 onMounted(() => {})

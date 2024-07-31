@@ -1,5 +1,6 @@
 // src/mock/index.ts
 
+import { Avatar } from '@element-plus/icons-vue';
 import Mock from 'mockjs'
 
 const generateRandomUserData = () => {
@@ -54,14 +55,19 @@ Mock.mock('/api/user/login', 'post', (options) => {
 
     // 检查用户名和密码
     const user = users.find(u => u.username === username && u.password === password);
+    const userInfo = Mock.mock({
+        'name': '@cname',
+        'username': user?.username,
+        'password': '@string("lower", 10)', // 生成10位小写字母的随机字符串作为密码
+        'phone': /^1[385][1-9]\d{8}/, // 生成符合中国手机号格式的随机手机号
+        'token': 'fake-jwt-token',
+        'avatar': '@image("200x200", "@color", "@first")'
+    });
     if (user) {
         return {
             code: 200,
             message: '登录成功',
-            data: {
-                token: 'fake-jwt-token',
-                username: user.username
-            }
+            data: userInfo
         };
     } else {
         return {

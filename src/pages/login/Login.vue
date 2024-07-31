@@ -1,6 +1,7 @@
 <template>
     <div class="login-container">
         <div className="login-box">
+            <el-switch v-model="theme" class="theme-change" width="60" inline-prompt active-value="dark" inactive-value="light" active-text="🌞" inactive-text="🌛" @change="changeTheme" />
             <div className="login-left">
                 <img src="@/assets/images/login_left.png" alt="login" />
             </div>
@@ -28,8 +29,9 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from '@/store/main'
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import { useUserStore } from '@/store/user'
+import { useSystemStore } from '@/store/system'
 import { loginAdmin } from '@/api/login'
 import { ElMessage } from 'element-plus'
 const loading = ref(false)
@@ -37,11 +39,12 @@ const loginFormData = reactive({
     username: '',
     password: '',
 })
-const mainStore = useMainStore()
-const updateName = () => {
-    mainStore.$patch({
-        name: '名称被修改了,nameLength也随之改变了',
-    })
+const userStore = useUserStore()
+const systemStore = useSystemStore()
+
+const theme = computed(() => systemStore.theme)
+const updateUserInfo = (userInfo) => {
+    userStore.loginIn(userInfo)
 }
 /**
  * @description 登录
@@ -51,11 +54,15 @@ function handleLogin() {
         .then((response: any) => {
             if (response) {
                 ElMessage.success(response.message)
+                updateUserInfo(response.data)
             }
         })
         .catch((error) => {
             ElMessage.error(error.message)
         })
+}
+function changeTheme(value:string) {
+    systemStore.changeTheme(value)
 }
 </script>
 
@@ -75,7 +82,7 @@ $light_gray: #eee;
     background-position: 50%;
     background-size: 100% 100%;
     background-size: cover;
-    background-color: $light_gray;
+    // background-color: $light_gray;
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 1000px #293444 inset !important;
         -webkit-text-fill-color: #fff !important;
@@ -114,7 +121,13 @@ $light_gray: #eee;
         padding: 0 4% 0 20px;
         overflow: hidden;
         border-radius: 10px;
-        background-color: rgba(255, 255, 255, 0.8) !important;
+
+        position: relative;
+        .theme-change {
+            position: absolute;
+            right: 20px;
+            top: 0;
+        }
         .login-left {
             width: 750px;
 
@@ -128,13 +141,11 @@ $light_gray: #eee;
             padding: 40px 45px 25px;
             border-radius: 10px;
             background-color: transparent !important;
-            box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.2) !important;
             .login-logo {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 margin-bottom: 40px;
-
                 .login-icon {
                     width: 100px;
                 }
@@ -151,7 +162,7 @@ $light_gray: #eee;
             }
         }
     }
-    .iconfont{
+    .iconfont {
         font-size: 30px;
     }
 }

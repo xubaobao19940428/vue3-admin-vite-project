@@ -42,6 +42,11 @@ $curTheme: light;
     $themeMap: map-get($themes, $curTheme);
     @return map-get($themeMap, $key);
 }
+.iconfont,.el-icon{
+    @include useTheme {
+        color:getVal('textColor')
+    }
+}
 .x_admin_header,
 .layout_view,
 .x_right {

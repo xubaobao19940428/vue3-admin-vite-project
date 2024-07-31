@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts" name="HeaderNav">
-import { ref, reactive, computed } from 'vue'
+import {computed } from 'vue'
 
 import { useSystemStore } from '@/store/system'
 import { useUserStore } from '@/store/user'
@@ -47,12 +47,18 @@ const route = useRoute()
 const isCollapse = computed(() => systemStore.isCollapse)
 const levelList = computed(() => route.matched)
 const userInfo = computed(() => userStore.userInfo)
-const openCollapse = (value) => {
+const openCollapse = (value:boolean) => {
     systemStore.insertPost(value)
 }
+/**
+ * @description 退出登录
+ */
 const logout = () => {
     systemStore.loginOut()
 }
+/**
+ * @description 全局抽屉打开
+ */
 const changeDrawer = () => {
     systemStore.changeDrawer(true)
 }

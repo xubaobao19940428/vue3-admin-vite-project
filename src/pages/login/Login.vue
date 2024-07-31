@@ -100,7 +100,6 @@ $light_gray: #eee;
             -webkit-appearance: none;
             border-radius: 0;
             padding: 12px 5px 12px 15px;
-            color: #111;
             height: 100%;
             font-size: 16px;
         }
@@ -157,7 +156,7 @@ $light_gray: #eee;
                     white-space: nowrap;
                     background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
                     background-clip: text;
-                    color: transparent;
+                    // color: transparent;
                 }
             }
         }

@@ -4,7 +4,7 @@ import App from './App.vue'
 //引入element-plus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import locale from 'element-plus/lib/locale/lang/zh-cn'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 //引用echarts
 // import * as echarts from 'echarts'
@@ -33,4 +33,4 @@ app.use(router)
 
 app.use(createPinia())
 app.mount('#app')
-app.use(ElementPlus, { locale })
+app.use(ElementPlus, { locale:zhCn })

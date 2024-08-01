@@ -13,15 +13,19 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
+    "@wangeditor/core": "^1.1.19",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^0.24.0",
     "echarts": "^5.4.3",
     "element-plus": "^2.2.16",
     "js-md5": "^0.7.3",
+    "lodash": "^4.17.21",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.0-rc.10",
     "screenfull": "^6.0.2",
     "vfonts": "^0.1.0",
-    "vue": "^3.2.2",
+    "vue": "^3.3.13",
     "vue-router": "4"
   },
   "devDependencies": {

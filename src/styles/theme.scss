@@ -42,7 +42,7 @@ $curTheme: light;
     $themeMap: map-get($themes, $curTheme);
     @return map-get($themeMap, $key);
 }
-.iconfont,.el-icon{
+.el-icon{
     @include useTheme {
         color:getVal('textColor')
     }

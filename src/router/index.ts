@@ -12,7 +12,7 @@ Object.keys(metaRouters).forEach(item => {
         routerArray.push(...metaRouters[item][key]);
     });
 });
-console.log(routerArray)
+
 const routes: RouterObject[] = [
     {
         path: '/',
@@ -38,7 +38,7 @@ const routes: RouterObject[] = [
         redirect: '/404',
     },
 ]
-
+console.log(routes)
 const router = createRouter({
     history: createWebHashHistory(),
     routes,

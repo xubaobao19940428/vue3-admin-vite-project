@@ -1,7 +1,7 @@
 <!--  -->
 <template>
     <div class="x-nav">
-        <el-menu unique-opened class="el-menu-vertical-demo" :default-active="activePath" :collapse="isCollapse" text-color="#ffffff" active-text-color="#409EFF" background-color="#222d32">
+        <el-menu unique-opened class="el-menu-vertical-demo" :default-active="activePath" :collapse="isCollapse" text-color="#ffffff" active-text-color="#409EFF" background-color="#324157">
             <h5 v-if="!isCollapse" class="false-collapse-h5">
                 <img src="@/assets/logo.png" alt="" class="false-collapse" @click="gotoDashboard" />
                 <span>X-VUE-ADMIN</span>
@@ -62,6 +62,7 @@ export default {
     height: 100%;
 }
 .el-menu {
+    border-right: none;
     h5 {
         height: 60px;
         text-align: center;
@@ -86,7 +87,10 @@ export default {
             color: aquamarine;
         }
     }
-    border-right: none;
+
+    // .el-menu-item:hover{
+    //     background-color: transparent
+    // }
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 221px;

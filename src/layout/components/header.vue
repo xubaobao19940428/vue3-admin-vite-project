@@ -94,7 +94,7 @@ const changeDrawer = () => {
     .header-r {
         display: flex;
         align-items: center;
-        .iconfont {
+        .icon-shezhi {
             cursor: pointer;
             font-size: 20px;
             transition: all 0.3s;

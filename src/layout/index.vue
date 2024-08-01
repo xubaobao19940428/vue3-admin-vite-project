@@ -71,7 +71,7 @@ export default defineComponent({
         -ms-flex-direction: column;
         flex-direction: column;
         .layout_view {
-            // padding: 10px;
+            padding: 10px;
             box-sizing: border-box;
             flex: 1;
         }

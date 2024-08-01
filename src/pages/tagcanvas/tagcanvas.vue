@@ -56,8 +56,8 @@ const shape = ref('sphere')
 const init = () => {
     let tWidth = document.body.offsetWidth
     try {
-         const DblHelix = function (n, rx, ry, rz) {
-            console.log('11111',n,rx)
+        const DblHelix = function (n, rx, ry, rz) {
+            console.log('11111', n, rx)
             var a = Math.PI / n,
                 i,
                 j,
@@ -68,7 +68,7 @@ const init = () => {
                 if (i % 2) j += Math.PI
                 p.push([rx * Math.cos(j), rz - z * i, ry * Math.sin(j)])
             }
-            console.log('p',p)
+            console.log('p', p)
             return p
         }
         TagCanvas.Start('myCanvas', 'tags', {

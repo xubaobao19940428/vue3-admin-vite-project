@@ -10,7 +10,8 @@ interface MetaProps {
     noCache?: boolean
     sort?: number,
     keepAlive?: boolean,
-    noPermission?:boolean
+    noPermission?: boolean,
+    isExternal?: boolean
 }
 export interface RouterObject {
     path: string,
@@ -18,5 +19,6 @@ export interface RouterObject {
     component?: RouteComponent | Lazy<RouteComponent>,
     redirect?: RouteRecordRedirectOption,
     meta?: MetaProps,
-    children?: RouterObject[]
+    children?: RouterObject[],
+    isExternal?: boolean
 }

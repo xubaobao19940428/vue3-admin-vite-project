@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import { RouterObject } from './interface/index'
 
+import NProgress from '@/utils/nprogress'
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.ts");
 
@@ -43,5 +44,12 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes,
 })
+router.beforeEach((to, _from, next) => {
+	NProgress.start()
+	next()
+})
 
+router.afterEach((to, _from) => {
+	NProgress.done()
+})
 export default router

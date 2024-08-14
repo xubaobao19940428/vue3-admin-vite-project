@@ -40,6 +40,9 @@ export default ({ mode }) => {
             alias: {
                 '@': path.resolve(__dirname, './src'),
             },
+            dedupe: [
+                'vue'
+              ]        
         },
         css: {
             preprocessorOptions: {

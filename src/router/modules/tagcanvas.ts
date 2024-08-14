@@ -6,7 +6,7 @@ const Tagcanvas = [
         meta: { title: 'Tagcanvas', icon: '&#xe608;', key: 'MENU_TAGCANVAS' },
         children: [{
             path: 'index',
-            name: 'index',
+            name: 'Tagcanvas',
             component: () =>
                 import('@/pages/tagcanvas/tagcanvas.vue'),
             meta: {

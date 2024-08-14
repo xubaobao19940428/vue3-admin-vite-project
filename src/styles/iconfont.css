@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4636083 */
-  src: url('iconfont.woff2?t=1722493939542') format('woff2'),
-       url('iconfont.woff?t=1722493939542') format('woff'),
-       url('iconfont.ttf?t=1722493939542') format('truetype');
+  src: url('iconfont.woff2?t=1723623740608') format('woff2'),
+       url('iconfont.woff?t=1723623740608') format('woff'),
+       url('iconfont.ttf?t=1723623740608') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-liuchengtu:before {
+  content: "\e628";
 }
 
 .icon-wailian:before {

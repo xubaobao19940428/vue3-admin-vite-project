@@ -7,7 +7,7 @@ import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import * as echarts from 'echarts'
 
 const chart = ref(null)
-let myChart = null
+let myChart: echarts.ECharts | null = null
 
 const chartOptions = ref({
     title: {

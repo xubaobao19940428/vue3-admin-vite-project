@@ -5,9 +5,10 @@ export const useUserStore = defineStore({
     state: () => ({
         userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo') as string) : {
             username: '',
-            name:'',
+            name: '',
             avatar: ''
-        }
+        },
+        token: localStorage.getItem('token') || '',
     }),
     getters: {
         // nameLength: (state) => state.name.length,
@@ -16,6 +17,7 @@ export const useUserStore = defineStore({
         async loginIn(data) {
             this.userInfo = data
             localStorage.setItem('userInfo', JSON.stringify(data))
+            localStorage.setItem('token', data.token)
             router.push({
                 path: '/'
             })

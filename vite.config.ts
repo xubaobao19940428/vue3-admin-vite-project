@@ -11,11 +11,11 @@ export default ({ mode }) => {
             proxy: {
                 // 选项写法
                 '/api/': {
-                    target: 'http://localhost:8080/',
+                    target: 'http://localhost:3000/',
                     // target: 'https://gateway-pre.memall.shop/', //预发
                     // target: 'https://gateway.melive.shop/', // 线上
                     changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/api/, 'api/')
+                    rewrite: (path) => path.replace(/^\/api/, 'api')
                 },
                 // 正则表达式写法
                 '^/fallback/.*': {

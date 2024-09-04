@@ -2,7 +2,7 @@ import router from '@/router'
 import { ElMessage } from 'element-plus'
 import axios from 'axios'
 
-const BASE = import.meta.env.VITE_APP_API + 'api/'
+const BASE = import.meta.env.VITE_APP_API + 'api'
 const httpService = axios.create({
     timeout: 45000,
 })

@@ -13,7 +13,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import router from './router/index'
 import './styles/index.scss'
 //引用mock.js
-import '@/mock/index'
+// import '@/mock/index'
 
 import echartsResize from './directives/echartsResize';
 

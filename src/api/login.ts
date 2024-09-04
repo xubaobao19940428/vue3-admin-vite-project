@@ -7,7 +7,7 @@ interface loginParams {
 export function loginAdmin(data: loginParams) {
     console.log(data)
     return request({
-        url: 'user/login',
+        url: '/login',
         method: 'post',
         data: data,
     });

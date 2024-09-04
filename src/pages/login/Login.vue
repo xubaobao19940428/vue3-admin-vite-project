@@ -10,7 +10,8 @@
                     <img className="login-icon" src="@/assets/logo.png" alt="logo" />
                     <span className="logo-text">Vue-Vite-Admin</span>
                 </div>
-                <el-form autoComplete="on" :model="loginFormData" ref="loginForm" label-position="left" label-width="0px" class="card-box">
+                <!--账号密码登录-->
+                <el-form autoComplete="on" :model="loginFormData" ref="loginForm" label-position="left" label-width="0px" class="card-box" v-if="loginType==='password'">
                     <el-form-item prop="username" style="border: 1px solid #ccc; padding: 0 10px; border-radius: 5px">
                         <i class="iconfont">&#xe618;</i>
                         <el-input name="username" type="text" v-model="loginFormData.username" autoComplete="on" placeholder="账号" />
@@ -19,6 +20,28 @@
                         <i class="iconfont">&#xe658;</i>
                         <el-input @keyup.enter.native="handleLogin" v-model="loginFormData.password" placeholder="密码" type="password"> </el-input>
                     </el-form-item>
+                    <div class="login-form-footer">
+                      <el-link type="primary">忘记密码？</el-link>
+                      <el-link type="primary" @click="changeLoginType('phone')">手机号登录</el-link>
+                    </div>
+                    <el-form-item>
+                        <el-button type="primary" style="width: 100%; height: 44px" :loading="loading" @click.native.prevent="handleLogin"> 登录 </el-button>
+                    </el-form-item>
+                </el-form>
+                <!--手机号登录-->
+                <el-form autoComplete="on" :model="loginFormData" ref="loginForm" label-position="left" label-width="0px" class="card-box" v-else>
+                    <el-form-item prop="username" style="border: 1px solid #ccc; padding: 0 10px; border-radius: 5px">
+                        <i class="iconfont">&#xe618;</i>
+                        <el-input name="username" type="text" v-model="loginFormData.username" autoComplete="on" placeholder="账号" />
+                    </el-form-item>
+                    <el-form-item prop="password" style="border: 1px solid #ccc; padding: 0 10px; border-radius: 5px">
+                        <i class="iconfont">&#xe658;</i>
+                        <el-input @keyup.enter.native="handleLogin" v-model="loginFormData.password" placeholder="密码" type="password"> </el-input>
+                    </el-form-item>
+                    <div class="login-form-footer">
+                      <el-link type="primary">忘记密码？</el-link>
+                      <el-link type="primary">手机号登录</el-link>
+                    </div>
                     <el-form-item>
                         <el-button type="primary" style="width: 100%; height: 44px" :loading="loading" @click.native.prevent="handleLogin"> 登录 </el-button>
                     </el-form-item>
@@ -35,6 +58,7 @@ import { useSystemStore } from '@/store/system'
 import { loginAdmin } from '@/api/login'
 import { ElMessage } from 'element-plus'
 const loading = ref(false)
+const loginType=ref('password')
 const loginFormData = reactive({
     username: '',
     password: '',
@@ -61,12 +85,24 @@ function handleLogin() {
             ElMessage.error(error.message)
         })
 }
+/**
+ * @description 主题切换
+ * @param value 
+ * @returns
+ */
 function changeTheme(value:string) {
     systemStore.changeTheme(value)
 }
+/**
+ * @description 切换登录方式
+ * @param type 登录方式
+ */
+function changeLoginType(type:string) {
+    loginType.value=type
+}
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style  lang="scss" scoped>
 $bg: #23463e;
 $dark_gray: #889aa4;
 $light_gray: #eee;
@@ -140,6 +176,12 @@ $light_gray: #eee;
             padding: 40px 45px 25px;
             border-radius: 10px;
             background-color: transparent !important;
+            .login-form-footer{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 10px 0 20px;
+            }
             .login-logo {
                 display: flex;
                 align-items: center;

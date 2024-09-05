@@ -36,5 +36,6 @@ export function loginWithCode(data: loginWithCodeParams) {
         url: '/loginWithCode',
         method: 'post',
         data: data,
+        
     });
 }

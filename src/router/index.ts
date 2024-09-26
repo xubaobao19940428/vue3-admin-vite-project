@@ -5,7 +5,12 @@ import { RouterObject } from './interface/index'
 import NProgress from '@/utils/nprogress'
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.ts");
-
+import Dashboard from './modules/dashboard'
+import Tagcanvas from './modules/tagcanvas';
+import VueFlow from './modules/vueFlow';
+import Component from './modules/component';
+import Home from './modules/home';
+import External from './modules/external'
 // * 处理路由
 export const routerArray: RouterObject[] = [];
 Object.keys(metaRouters).forEach(item => {
@@ -24,7 +29,13 @@ const routes: RouterObject[] = [
         name: 'login',
         component: () => import('@/pages/login/login.vue'),
     },
-    ...routerArray,
+    ...Dashboard,
+    ...Home,
+    ...Tagcanvas,
+    ...VueFlow,
+    ...Component,
+    ...External,
+    // ...routerArray,
     {
         path: '/404',
         name: '404',

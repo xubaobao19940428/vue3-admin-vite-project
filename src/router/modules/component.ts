@@ -3,7 +3,7 @@ const Component = [
     {
         path: '/component',
         component: layOut,
-        meta: { title: '组件', icon: '&#xe637;', key: 'MENU_TABLE' },
+        meta: { title: '通用组件', icon: '&#xe637;', key: 'MENU_TABLE' },
         children: [{
             path: 'index',
             name: 'table',

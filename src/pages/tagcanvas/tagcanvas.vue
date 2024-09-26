@@ -105,6 +105,7 @@ const init = () => {
 const getPictureFunc = () => {
     pictureGet()
         .then((res) => {
+            console.log('res', res)
             members.value = res.data
             var canvas = canvasDom.value
             let tWidth = document.body.offsetWidth

@@ -12,8 +12,6 @@ export default ({ mode }) => {
                 // 选项写法
                 '/api/': {
                     target: 'http://localhost:3000/',
-                    // target: 'https://gateway-pre.memall.shop/', //预发
-                    // target: 'https://gateway.melive.shop/', // 线上
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/api/, 'api')
                 },

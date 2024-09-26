@@ -77,24 +77,24 @@
             </el-row>
         </div>
         <el-row :gutter="20">
-            <el-col :span="12">
+            <el-col :span="12" :xs="24" :sm="24" :md="24" :lg="12">
                 <el-card style="width: 100%; height: 100%">
                     <PieCharts></PieCharts>
                 </el-card>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="12" :xs="24" :sm="24" :md="24" :lg="12">
                 <el-card style="width: 100%; height: 100%">
                     <PieCharts></PieCharts>
                 </el-card>
             </el-col>
         </el-row>
         <el-row :gutter="20">
-            <el-col :span="12">
+            <el-col :span="12" :xs="24" :sm="24" :md="24" :lg="12">
                 <el-card style="width: 100%; height: 100%">
                     <LineCharts></LineCharts>
                 </el-card>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="12" :xs="24" :sm="24" :md="24" :lg="12">
                 <el-card style="width: 100%; height: 100%">
                     <BarCharts></BarCharts>
                 </el-card>
@@ -127,6 +127,7 @@ import VueCountTo from '@/components/VueCountTo/VueCountTo.vue'
         flex: 1;
         margin:10px 0;
         .el-col {
+            margin-top: 10px;
             // &:nth-child(1) {
             //     :deep(.el-card) {
             //         background-color: aquamarine;
